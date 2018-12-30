@@ -4,38 +4,36 @@
     flex-direction: row;
     margin: 0px;
     padding: 0px;
-    background-color: #76f012 ;
+    background-color: #4f4c4b;
     width: 100%;
     height: 100%;
 }
-
-/* ### TABS ###*/
-
-
-
 
 
 
 
 /* ### CONTENT ###*/
 .content-app-full {
-    min-width: 100%;
-    margin-left: 15%;
+    margin-left: 11%;
+    min-height: 100vh;
+    margin-top: 50px;
 }
 
 .content-app-with-sidebar {
     min-width: 85%;
     margin-left: 15%;
+    min-height: 100vh;
+    margin-top: 50px;
 }
 
 .content-with-sidebar-open {
-    font-size: 70px;
+    font-size: 20px;
     margin-left: -15%;
 }
 
 .content-with-sidebar-close {
     margin-left: 0%;
-    font-size: 70px;
+    font-size: 20px;
 }
 
 
@@ -47,6 +45,30 @@
     height: 100%;
     min-width: 15%;
     position: fixed;
+    background-color: #868181;
+}
+
+.sidebar a:hover {
+    color: white;
+    text-decoration: none;
+    transition: all 0.25s;
+}
+
+.sidebar-item {
+    color: #4b4848;
+    text-decoration: none;
+}
+
+.first-level-sidebar-item {
+    margin-top: 55px;
+    font-size: 30px;
+    padding-left: 30px;
+}
+
+.second-level-sidebar-item {
+    margin-top: 15px;
+    font-size: 23px;
+    padding-left: 45px;
 }
 
 .open-sidebar {
@@ -63,27 +85,58 @@
 
 
 /* ### TOP BAR ###*/
-.top-menu-with-sidebar-open {
+.topbar {
     font-size: 30px;
-    background-color: darkgray;
-    margin-left: -15%;
+    background-color: #3a3434;
+    color: dimgray;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 50px;
+}
+
+.top-menu-with-sidebar-open {
+    margin-left: -11%;
 }
 
 .top-menu-with-sidebar-close {
-    font-size: 30px;
-    background-color: darkgray;
     margin-left: 0%;
 }
 
-
 #sidebar-opener {
     cursor: pointer;
+    padding-left: 0.5%;
+}
+
+.topnav .login-container-sidebar-open {
+    float: right;
+    padding-right: 250px;
+    transition: all 0.3s;
+}
+
+.topnav .login-container-sidebar-close {
+    float: right;
+    padding-right: 20px;
+    transition: all 0.3s;
+}
+
+.topnav .login-input {
+    font-size: 20px;
+    margin-left: 20px;
+    width: 150px;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: #868181;
+}
+
+.topnav button {
+    margin-left: 20px;
 }
 
 
 
 
-/* ### PARALLAX ###*/
+/* ### HOME ###*/
 .home-parallax {
     height: 100vh;
     width: 100%;
@@ -93,9 +146,50 @@
     margin: 0;
 }
 
-.home-parallax h1 {
+.home-parallax2 {
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://wallpapercave.com/wp/wp2384376.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.home-parallax3 {
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.home-parallax4 {
+    height: 100vh;
+    width: 100%;
+    background-image: url('http://eastwest.co.nz/wp-content/uploads/2016/02/Miguel-Santana-0048.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.on-img {
     text-align: center;
+    font-style: oblique;
+    font-family: Apple Chancery, cursive;
     font-size: 50px;
     margin: 0px;
+    padding: 20vw 0 5vw;
     color: white;
+    font-weight: bold;
+}
+
+
+.home-content {
+    font-size: 30px;
+    color: rgb(212, 76, 42);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 30px;
 }

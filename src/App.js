@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
-import Example from './Example';
 import Sidebar from './Sidebar';
 import About from './About';
-import LoginForm from './LoginForm';
+import Topnav from './Topnav';
 
 class App extends Component {
   state = {
     menuIsOpened: true
   }
 
-  handleClick = (e) => {
-    const menuIsOpened = this.state.menuIsOpened;
-    this.setState({ menuIsOpened: !menuIsOpened });
+  changeMenuState = (menuState) => {
+    console.log(menuState);
+    this.setState({ menuIsOpened: !menuState });
   }
 
   render() {
@@ -27,13 +26,11 @@ class App extends Component {
 
           <div className={this.state.menuIsOpened ? "content-app-full" : "content-app-with-sidebar"}>
 
-            <div className={this.state.menuIsOpened ? "top-menu-with-sidebar-open" : "top-menu-with-sidebar-close"}>
-              <span id="sidebar-opener" onClick={this.handleClick}>&#9776;</span>
-            </div>
+            <Topnav changeMenuState={this.changeMenuState}/>
 
             <div className={this.state.menuIsOpened ? "content-with-sidebar-open" : "content-with-sidebar-close"}>
               <Route exact path="/" component={Home}/>
-              <Route path="/example" component={Example}/>
+              <Route path="/example" component={About}/>
               <Route path="/about" component={About}/>
             </div>
 

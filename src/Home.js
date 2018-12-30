@@ -6,12 +6,29 @@ class Home extends Component {
             <div className="home">
 
                 <div className="home-parallax">
-                    <h1>PULL UPS ARE GOD EXERCISE</h1>
+                    <h1 className="on-img">Nothing is impossible . . .<br/>if you want to achive it</h1>
                 </div>
 
                 <div className="home-content">
-                    THIS IS HOME<br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eveniet ea accusantium vitae voluptates obcaecati, asperiores illum ab minima. Debitis autem ad molestiae odio reprehenderit quidem omnis placeat vero laudantium?
+                    There are many types of training. You can train for explosivness and dynamic, strength or endurance. With us You can achive everything.
                 </div>
+
+                <div className="home-parallax2">
+                    <h1 className="on-img">Endurance</h1>
+                </div>
+
+                <div className="home-parallax3">
+                    <h1 className="on-img">Strength</h1>
+                </div>
+
+                <div className="home-parallax4">
+                    <h1 className="on-img">Dynamic and Explosivness</h1>
+                </div>
+
+                <div className="home-content">
+                    And much much more ! Join us today and start to working on best shape of your life !
+                </div>
+
 
             </div>
         );
