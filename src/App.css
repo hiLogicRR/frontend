@@ -15,14 +15,14 @@
 /* ### CONTENT ###*/
 .content-app-full {
     margin-left: 11%;
-    min-height: 100vh;
+    min-height: 93.3vh;
     margin-top: 50px;
 }
 
 .content-app-with-sidebar {
     min-width: 85%;
     margin-left: 15%;
-    min-height: 100vh;
+    min-height: 93.3vh;
     margin-top: 50px;
 }
 
@@ -124,15 +124,48 @@
     font-size: 20px;
     margin-left: 20px;
     width: 150px;
-    border: 2px solid black;
-    border-radius: 4px;
-    background-color: #868181;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    cursor: text;
 }
 
 .topnav button {
     margin-left: 20px;
 }
 
+/* ### POPUP ### */
+.popup {
+    margin-left: 0;
+}
+
+.h1-join {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    margin-left: 450px;
+}
+
+.label-reg {
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 40px;
+}
+
+
+
+.h1-registered {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    margin-left: 20px;
+}
+
+.btn-registered {
+    width: 150px;
+}
 
 
 
@@ -147,7 +180,7 @@
 }
 
 .home-parallax2 {
-    height: 100vh;
+    height: 75vh;
     width: 100%;
     background-image: url('https://wallpapercave.com/wp/wp2384376.jpg');
     background-size: cover;
@@ -156,7 +189,7 @@
 }
 
 .home-parallax3 {
-    height: 100vh;
+    height: 75vh;
     width: 100%;
     background-image: url('https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
     background-size: cover;
@@ -165,7 +198,7 @@
 }
 
 .home-parallax4 {
-    height: 100vh;
+    height: 75vh;
     width: 100%;
     background-image: url('http://eastwest.co.nz/wp-content/uploads/2016/02/Miguel-Santana-0048.jpg');
     background-size: cover;
@@ -192,4 +225,140 @@
     margin-bottom: 50px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin-left: 30px;
+}
+
+/* ### STUFF */
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    color: #6b6262;
+}
+
+.activated {
+    pointer-events: all;
+    cursor: pointer;
+    color: #4b4848;
+}
+
+.disabled2 {
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.activated2 {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+/* ### RANKINGS #### */
+.rankings table {
+    width:35vw;
+    margin-top: 20px;
+    margin-left: 40%;
+}
+
+.rankings td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+  
+.rankings tr:nth-child(even) {
+    background-color: #837979;
+}
+
+.sort-column {
+    cursor: pointer;
+}
+.search {
+    margin-left: 40%;
+    margin-top: 70px;
+    width: 35vw;
+}
+
+
+/* ### ABOUT ### */
+.about-content {
+    margin-left: 100px;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+/* ### CONTACTUS ### */
+.contactus-content {
+    margin-left: 100px;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+/* ### PROFILE ### */
+.profile {
+    margin-top: 90px;
+    margin-left: 110px;
+}
+
+.input-number {
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 70px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.label-max {
+    margin-left: 50px;
+}
+
+.label {
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.input-pass {
+    margin-left: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    width: 200px;
+}
+
+.h1-pass {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+}
+
+/* ### MY TRAININGS ### */
+.h1-mt {
+    margin-top: 15px;
+    font-size: 70px;
+    margin-left: 100px;
+    text-decoration: solid;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.my-trainings {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.my-trainings a {
+    color: #1d1b1b;
+}
+
+.my-trainings a:hover {
+    color: white;
+    text-decoration: none;
+    transition: all 0.25s;
+}
+
+.my-trainings .accordion-item {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.my-trainings .accordion-title {
+    font-size: 40px;
 }
