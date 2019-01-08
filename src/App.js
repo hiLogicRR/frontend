@@ -9,6 +9,7 @@ import Rankings from './Rankings';
 import ContactUs from './ContactUs';
 import Profile from './Profile';
 import MyTrainings from './MyTrainings';
+import AddTraining from './AddTraining';
 
 class App extends Component {
   state = {
@@ -49,7 +50,8 @@ class App extends Component {
             <div className={this.state.menuIsOpened ? "content-with-sidebar-open" : "content-with-sidebar-close"}>
               <Route exact path="/" component={Home} />
               <Route path="/profile" render={() => (<Profile user={this.state.user} />)} />
-              <Route path="/mytrainings" component={MyTrainings} />
+              <Route path="/mytrainings" render={() => (<MyTrainings user={this.state.user} />)} />
+              <Route path="/addtraining" render={() => (<AddTraining user={this.state.user} />)} />
               <Route path="/rankings" component={Rankings} />
               <Route path="/about" component={About} />
               <Route path="/contactus" component={ContactUs} />

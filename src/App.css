@@ -250,6 +250,10 @@
     cursor: pointer;
 }
 
+.display-linebreak {
+    white-space: pre-line;
+}
+
 /* ### RANKINGS #### */
 .rankings table {
     width:35vw;
@@ -361,4 +365,10 @@
 
 .my-trainings .accordion-title {
     font-size: 40px;
+}
+
+/* ### ADD TRAININGS ### */
+.add-training {
+    margin-top: 50px;
+    margin-left: 100px;
 }
