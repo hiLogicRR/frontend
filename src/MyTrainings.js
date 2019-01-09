@@ -27,12 +27,10 @@ class MyTrainings extends Component{
                 var id = this.state.trainingsIDs[key]['id'];
                 var name = this.state.trainingsIDs[key]['name'] ? this.state.trainingsIDs[key]['name'] : 'bez nazwy'; 
 
-                console.log('chest');
                 let chest = await axios.post('http://localhost:5000/api/chest', {'training_id': id})
                 .then((response) => {
                     //console.log(response.data)
                     for(var i in response.data) {
-                        //console.log(response.data[i]['exercise'] + ' ' + response.data[i]['reps'] + 'x' + response.data[i]['sets'] + ', type: ' + response.data[i]['type']);
                         return (response.data[i]['exercise'] + ' ' + response.data[i]['reps'] + 'x' + response.data[i]['sets'] + ', type: ' + response.data[i]['type'] + '\n');
                     }
                 })
@@ -44,7 +42,6 @@ class MyTrainings extends Component{
                 .then((response) => {
                     //console.log(response.data)
                     for(var i in response.data) {
-                        //console.log(response.data[i]['exercise'] + ' ' + response.data[i]['reps'] + 'x' + response.data[i]['sets'] + ', type: ' + response.data[i]['type']);
                         return (response.data[i]['exercise'] + ' ' + response.data[i]['reps'] + 'x' + response.data[i]['sets'] + ', type: ' + response.data[i]['type'] + '\n');
                     }
                 })
@@ -56,7 +53,6 @@ class MyTrainings extends Component{
                 .then((response) => {
                     //console.log(response.data)
                     for(var i in response.data) {
-                        //console.log(response.data[i]['exercise'] + ' ' + response.data[i]['reps'] + 'x' + response.data[i]['sets'] + ', type: ' + response.data[i]['type']);
                         return (response.data[i]['exercise'] + ' ' + response.data[i]['reps'] + 'x' + response.data[i]['sets'] + ', type: ' + response.data[i]['type'] + '\n');
                     }
                 })
@@ -65,15 +61,9 @@ class MyTrainings extends Component{
                 });
 
                 if(chest!==undefined || back!==undefined || legs!==undefined) {
-                    console.log('oplaca sie drukowac');
-                    console.log(chest);
-                    console.log(back);
-                    console.log(legs);
-                    console.log('koniec')
                     arr.push({'id': id, 'name': name, 'training': (chest ? chest : '')+(back ? back : '')+(legs ? legs : '')});
                 }
                 
-                console.log(arr);
             }
 
             const accordion = arr.map(el => {

@@ -3,7 +3,6 @@ import axios from 'axios';
 
 class Profile extends Component {
     state = {
-        user: [null,null,null,0,0,0],
         maxPullups: 0,
         maxPushups: 0,
         maxSquats: 0,
@@ -13,7 +12,10 @@ class Profile extends Component {
 
     handleSubmitReps = (e) => {
         console.log({'id': this.props.user['id'], 'pullups': this.state.maxPullups, 'pushups': this.state.maxPushups, 'squats': this.state.maxSquats});
-        axios.post('http://localhost:5000/api/updateReps', {'id': this.state.user[0], 'pullups': this.state.maxPullups, 'pushups': this.state.maxPushups, 'squats': this.state.maxSquats}).then((response) => {
+        this.props.user['pullups'] = this.state.maxPullups;
+        this.props.user['pushups'] = this.state.maxPushups;
+        this.props.user['squats'] = this.state.maxSquats;
+        axios.post('http://localhost:5000/api/updateReps', {'id': this.props.user['id'], 'pullups': this.state.maxPullups, 'pushups': this.state.maxPushups, 'squats': this.state.maxSquats}).then((response) => {
             console.log(response);
         });
     }

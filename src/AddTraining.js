@@ -2,19 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class AddTraining extends Component {
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //         training_id: null,
-    //         chest: [],
-    //         back: [],
-    //         legs: [],
-    //         values: []
-    //     }
-
-    //     this.addTraining.bind(this);
-    // }
     state = {
         training_id: null,
         name: '',
@@ -24,6 +11,7 @@ class AddTraining extends Component {
         sets: '',
         type: '',
         muscle: '',
+        exerciseID: 1
     }
 
     addTraining = () => {
@@ -58,7 +46,8 @@ class AddTraining extends Component {
     
     add = (e) => {
         const training = this.state.training;
-        training.push({'muscle': this.state.muscle, 'exercise': this.state.exercise, 'reps': this.state.reps, 'sets': this.state.sets, 'type': this.state.type});
+        training.push({'muscle': this.state.muscle, 'exercise': this.state.exercise, 'reps': this.state.reps, 'sets': this.state.sets, 'type': this.state.type, 'exerciseID': this.state.exerciseID});
+        const exerciseID = this.state.exerciseID + 1;
         this.setState({
             training: training,
             muscle: '-',
@@ -66,6 +55,7 @@ class AddTraining extends Component {
             reps: '',
             sets: '',
             type: '-',
+            exerciseID: exerciseID
         });
 
         console.log(this.state);
@@ -75,7 +65,24 @@ class AddTraining extends Component {
         e.preventDefault();
     }
 
+    deleteExercise = (exerciseID) => {
+        const training = this.state.training.filter(t => {
+            return t['exerciseID'] !== exerciseID
+        })
+        this.setState({
+            training: training
+        });
+    }
+
     render() {
+        const workout = this.state.training.length ? (
+            this.state.training.map(t => {
+                return(
+                    <div key={t['exerciseID']}>
+                        <span style={{cursor: "pointer"}} className="list-group-item list-group-item-dark" onClick={() => {this.deleteExercise(t['exerciseID'])}}>{t['exercise'] + ' ' +t['reps'] + 'x' + t['sets'] + ' <' + t['type'] + '>'}</span>
+                    </div> )})) : (<p>add some exercise!</p>)
+        
+
         return(
             <div className="add-training" style={{marginBottom: "200px"}}>
                 <form onSubmit={this.handleSubmit}>
@@ -109,6 +116,9 @@ class AddTraining extends Component {
                     <button style={{marginTop: "150px", marginLeft: "250px"}} className="btn btn-outline-secondary btn-lg">SUBMIT WORKOUT</button>
                     
                 </form>
+
+                <h1 className="h1-mt">current workout</h1>
+                    {workout}
             </div>
         );
     }
