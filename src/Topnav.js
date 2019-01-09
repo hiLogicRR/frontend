@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from "axios";
+import { Redirect } from 'react-router-dom';
 
 class RegisterPopUp extends Component {
     state = {
@@ -94,6 +95,7 @@ class Topnav extends Component {
         password: null,
         loggedIn: false,
         showPopup: false,
+        redirect: false
     }
 
     togglePopup() {
@@ -130,7 +132,8 @@ class Topnav extends Component {
             }
             else {
                 this.setState({
-                    loggedIn: true
+                    loggedIn: true,
+                    redirect: false
                 });
             }
         })
@@ -150,6 +153,7 @@ class Topnav extends Component {
         this.props.changeLoginStatus(false);
         this.setState({
             loggedIn: false,
+            redirect: true
         });
     }
 
@@ -158,9 +162,16 @@ class Topnav extends Component {
         this.togglePopup.bind(this);
     }
 
+    renderRedirect = () => {
+        if(this.state.redirect) {
+            return <Redirect to='/' />
+        }
+    }
+
     render() {
         return(
             <div className="topnav">
+                {this.renderRedirect()}
                 <div className={this.state.menuIsOpened ? "top-menu-with-sidebar-open topbar" : "top-menu-with-sidebar-close topbar"}>
                 <span id="sidebar-opener" onClick={this.handleClick}>&#9776;</span>
                 {this.state.loggedIn ? null : (<span className="logout"><button className="btn btn-outline-secondary btn-sm" onClick={this.togglePopup.bind(this)}>Register</button></span>)}
