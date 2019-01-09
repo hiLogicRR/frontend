@@ -371,4 +371,14 @@
 .add-training {
     margin-top: 50px;
     margin-left: 100px;
+    padding-left: 150px;
 }
+
+.input-training {
+    margin-left: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    width: 200px;
+} 
+

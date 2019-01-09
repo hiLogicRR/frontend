@@ -64,8 +64,15 @@ class MyTrainings extends Component{
                     console.log(err);
                 });
 
-                arr.push({'id': id, 'name': name, 'training': (chest ? chest : '')+(back ? back : '')+(legs ? legs : '')});
-
+                if(chest!==undefined || back!==undefined || legs!==undefined) {
+                    console.log('oplaca sie drukowac');
+                    console.log(chest);
+                    console.log(back);
+                    console.log(legs);
+                    console.log('koniec')
+                    arr.push({'id': id, 'name': name, 'training': (chest ? chest : '')+(back ? back : '')+(legs ? legs : '')});
+                }
+                
                 console.log(arr);
             }
 
