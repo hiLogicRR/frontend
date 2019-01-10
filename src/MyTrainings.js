@@ -93,7 +93,7 @@ class MyTrainings extends Component{
 
     render() {
         return(
-            <div>
+            <div style={{marginBottom: "100px"}}>
                 <h1 className="h1-mt">MY TRAININGS</h1>
                 <div className="my-trainings">
                     <div className="panel-group" id="accordion">

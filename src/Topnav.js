@@ -129,6 +129,7 @@ class Topnav extends Component {
                 this.setState({
                     loggedIn: false
                 });
+                alert('incorrect password. try again');
             }
             else {
                 this.setState({

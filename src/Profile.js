@@ -6,15 +6,20 @@ class Profile extends Component {
         maxPullups: 0,
         maxPushups: 0,
         maxSquats: 0,
+        currentPullups: 0,
+        currentPushups: 0,
+        currentSquats: 0,
         password1: null,
         password2: null,
     }
 
     handleSubmitReps = (e) => {
         console.log({'id': this.props.user['id'], 'pullups': this.state.maxPullups, 'pushups': this.state.maxPushups, 'squats': this.state.maxSquats});
-        this.props.user['pullups'] = this.state.maxPullups;
-        this.props.user['pushups'] = this.state.maxPushups;
-        this.props.user['squats'] = this.state.maxSquats;
+        this.setState({
+            currentPullups: this.state.maxPullups,
+            currentPushups: this.state.maxPushups,
+            currentSquats: this.state.maxSquats
+        });
         axios.post('http://localhost:5000/api/updateReps', {'id': this.props.user['id'], 'pullups': this.state.maxPullups, 'pushups': this.state.maxPushups, 'squats': this.state.maxSquats}).then((response) => {
             console.log(response);
         });
@@ -44,6 +49,14 @@ class Profile extends Component {
         });
     }
 
+    componentDidMount() {
+        this.setState({
+            currentPullups: this.props.user['pullups'],
+            currentPushups: this.props.user['pushups'],
+            currentSquats: this.props.user['squats']
+        });
+    }
+
     render() {
         return(
             <div className="profile">
@@ -51,17 +64,17 @@ class Profile extends Component {
                 <form onSubmit={this.handleSubmitReps}>
                     <label className="label">UPDATE MAX REPS IN PULL UPS </label>
                     <input min="0" value={this.state.maxPullups} id="maxPullups" type="number" className="input-number" onChange={this.handleChange} />
-                    <label className="label-max label">CURRENT MAX : {this.props.user['pullups']}</label>
+                    <label className="label-max label">CURRENT MAX : {this.state.currentPullups}</label>
                     <br />
 
                     <label className="label">UPDATE MAX REPS IN PUSH UPS</label>
                     <input min="0" value={this.state.maxPushups} id="maxPushups" type="number" className="input-number" onChange={this.handleChange} />
-                    <label className="label-max label">CURRENT MAX : {this.props.user['pushups']}</label>
+                    <label className="label-max label">CURRENT MAX : {this.state.currentPushups}</label>
                     <br />
 
                     <label className="label">UPDATE MAX REPS IN SQUATS UPS</label>
                     <input min="0" value={this.state.maxSquats} id="maxSquats" type="number" className="input-number" onChange={this.handleChange} />
-                    <label className="label-max label">CURRENT MAX : {this.props.user['squats']}</label>
+                    <label className="label-max label">CURRENT MAX : {this.state.currentSquats}</label>
                     <br />
 
                     <button className="btn btn-outline-secondary btn-dark btn-sm">SET NEW MAX REPS</button>

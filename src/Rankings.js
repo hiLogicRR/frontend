@@ -6,7 +6,8 @@ class Rankings extends Component {
         users: [],
         sortingOrder: true,
         searchUsers: [],
-        search: ''
+        search: '',
+        searchEnabled: false
     };
 
     componentDidMount() {
@@ -16,7 +17,6 @@ class Rankings extends Component {
             console.log(response.data);
             this.setState({
                 users: response.data,
-                searchUsers: response.data
             })
         })
         .catch((error) => {
@@ -40,6 +40,39 @@ class Rankings extends Component {
 
     handleKeyUp = (e) => {
         console.log(e.target.value);
+        if(e.target.value === '') 
+        {
+            this.setState({
+                search: e.target.value,
+                searchEnabled: false,
+                searchUsers: this.state.users
+            });
+        }
+        else {
+            this.setState({
+                search: e.target.value,
+                searchEnabled: true,
+                searchUsers: this.state.users
+            });
+        }
+        if(this.state.search !== '') {
+            console.log('here');
+            const searchUsers = this.state.users.filter(user => {
+                console.log('here2');
+            return user['username'].includes(this.state.search);
+            });
+            this.setState({
+                searchUsers: searchUsers,
+                searchEnabled: true
+            });
+            console.log(this.state.searchUsers);
+        }
+        else {
+            this.setState({
+                searchUsers: this.state.users,
+                searchEnabled: false
+            });
+        }
     }
 
     render() {
@@ -59,6 +92,16 @@ class Rankings extends Component {
                 </tr>
             )
         })
+        const searchUsersHTML = this.state.searchUsers.map(user => {
+            return(
+                <tr key={user['id']}>
+                    <th>{user['username']}</th>
+                    <th>{user['pullups']}</th>
+                    <th>{user['pushups']}</th>
+                    <th>{user['squats']}</th>
+                </tr>
+            )
+        })
         return(
             <div id="ranking-table" className="rankings">
                 <input type="text" className="search form-control" onKeyUp={this.handleKeyUp} placeholder="&#128269; search ... " />
@@ -72,7 +115,7 @@ class Rankings extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {usersList}
+                        {this.state.search ? searchUsersHTML : usersList}
                     </tbody>
                 </table>
             </div>
